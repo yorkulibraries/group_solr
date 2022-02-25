@@ -1,0 +1,13 @@
+{
+    "name": "group_solr",
+    "type": "drupal-module",
+    "description": "My Awesome Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/group_solr",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/group_solr",
+        "source": "http://cgit.drupalcode.org/group_solr",
+    },
+}

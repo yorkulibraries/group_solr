@@ -1,0 +1,5 @@
+name: 'Search API Solr Access Control With Groups'
+type: module
+description: 'My Awesome Module'
+core_version_requirement: '^8 || ^9'
+package: 'Custom'

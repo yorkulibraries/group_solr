@@ -50,16 +50,9 @@ class AccessControl extends ProcessorPluginBase {
      * {@inheritdoc}
      */
     public function addFieldValues(ItemInterface $item) {
-        Utilities::print_log("===== Access control is called here ========");
         $entity = $item->getOriginalObject()->getValue();
         $operation = "view";
-        /*if (empty($entity)
-            || $entity->bundle() !== "islandora_object"
-            || !$entity->hasField("field_access_terms")
-            || $entity->get("field_access_terms")->isEmpty()) {
-            return;
-        }*/
-        Utilities::print_log("Access control ".$entity->getTitle()." started indexing...");
+
         /** @var \Drupal\group\Plugin\GroupContentEnablerManagerInterface $plugin_manager */
         $plugin_manager = \Drupal::service('plugin.manager.group_content_enabler');
 
@@ -88,12 +81,10 @@ class AccessControl extends ProcessorPluginBase {
                 ->addCacheContexts(['user.group_permissions']);
 
             if ($access->isAllowed()) {
-                Utilities::print_log($entity->getTitle() ." is public access");
                 $value = "200";
             }
             else {
-                Utilities::print_log($entity->getTitle() ." is private");
-                $value = "404";
+                $value = "403";
             }
 
 
@@ -107,7 +98,6 @@ class AccessControl extends ProcessorPluginBase {
         foreach ($fields as $field) {
             $field->addValue($value);
         }
-        Utilities::print_log("===== ======================== ========");
     }
 
 }

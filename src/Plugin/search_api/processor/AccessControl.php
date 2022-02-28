@@ -7,7 +7,7 @@ use Drupal\group\Entity\GroupContent;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
-use Drupal\search_api\Plugin\search_api\processor\Property\AddURLProperty;
+use Drupal\group_solr\Plugin\search_api\processor\Property\AddAccessControlProperty;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 
@@ -40,7 +40,7 @@ class AccessControl extends ProcessorPluginBase {
                 'type' => 'string',
                 'processor_id' => $this->getPluginId(),
             ];
-            $properties['search_api_group_access_control'] = new AddURLProperty($definition);
+            $properties['search_api_group_access_control'] = new AddAccessControlProperty($definition);
         }
 
         return $properties;

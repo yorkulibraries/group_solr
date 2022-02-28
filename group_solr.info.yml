@@ -1,6 +1,6 @@
 name: 'Search API Solr Access Control With Groups'
 type: module
-description: 'My Awesome Module'
+description: 'This module add Solr indexed field(s) which is determined access control with Group module for an indexed item to be public or private for annonymous users'
 core_version_requirement: '^8 || ^9'
 package: 'Custom'
 dependencies:

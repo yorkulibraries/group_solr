@@ -4,6 +4,7 @@
     "description": "This module add Solr indexed field(s) which is determined access control with Group module for an indexed item to be public or private for annonymous users",
     "keywords": [
     ],
+    "license": "GPL-2.0-or-later",
     "homepage": "https://github.com/digitalutsc/group_solr",
     "minimum-stability": "dev",
     "support": {

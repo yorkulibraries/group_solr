@@ -16,7 +16,9 @@ function group_solr_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.group_solr':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      $output .= '<p>' . t('This module add Solr indexed field(s) which is determined access control with 
+        <a href="https://www.drupal.org/project/group" target="_blank">Group</a> 
+        for an indexed item to be public or private for annonymous users') . '</p>';
       return $output;
 
     default:

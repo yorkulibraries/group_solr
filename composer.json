@@ -1,13 +1,51 @@
 {
-    "name": "group_solr",
+    "name": "digitalutsc/group_solr",
     "type": "drupal-module",
-    "description": "My Awesome Module",
+    "description": "This module add Solr indexed field(s) which is determined access control with Group module for an indexed item to be public or private for annonymous users",
     "keywords": [
     ],
-    "homepage": "https://www.drupal.org/project/group_solr",
+    "homepage": "https://github.com/digitalutsc/group_solr",
     "minimum-stability": "dev",
     "support": {
-        "issues": "https://www.drupal.org/project/issues/group_solr",
-        "source": "http://cgit.drupalcode.org/group_solr",
+        "issues": "https://github.com/digitalutsc/group_solr/issues",
+        "source": "https://github.com/digitalutsc/group_solr"
     },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "require": {
+    },
+    "require-dev": {
+        "drupal/group": "^1.4",
+        "drupal/groupmedia": "^2.0@alpha",
+        "drupal/group_permissions":"^1.0@alpha",
+        "drupal/search_api_solr": "^4.2"
+    },
+    "authors": [
+        {
+            "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+            "email": "digitalscholarship@utsc.utoronto.ca",
+            "role": "Owner"
+        },
+        {
+            "name": "Kyle Huynh",
+            "email": "kyle.huynh205@gmail.com",
+            "role": "Maintainer"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer"
+        ],
+        "post-update-cmd": [
+            "./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer"
+        ],
+        "check": [
+            "./vendor/bin/phpcs --standard=Drupal --ignore=*.md,vendor --extensions=php,module,inc,install,test,profile,theme,css,info .",
+            "./vendor/bin/phpcpd --names='*.module,*.inc,*.test,*.php' --exclude=vendor ."
+        ]
+    }
 }

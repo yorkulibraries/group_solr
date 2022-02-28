@@ -3,3 +3,8 @@ type: module
 description: 'My Awesome Module'
 core_version_requirement: '^8 || ^9'
 package: 'Custom'
+dependencies:
+  - group
+  - groupmedia
+  - group_permissions
+  - search_api_solr

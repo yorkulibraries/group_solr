@@ -18,8 +18,6 @@
         }
     },
     "require": {
-    },
-    "require-dev": {
         "drupal/group": "^1.4",
         "drupal/groupmedia": "^2.0@alpha",
         "drupal/group_permissions":"^1.0@alpha",

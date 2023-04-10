@@ -64,7 +64,7 @@ class AccessControl extends ProcessorPluginBase {
         }
 
         // Load all of the group content for this entity.
-        $group_contents = GroupContent::loadByEntity($entity);
+        $group_contents = GroupRelationship::loadByEntity($entity);
         if (!empty($group_contents) && count($group_contents) > 0) {
             $access = AccessResult::neutral();
             foreach ($plugin_ids as $plugin_id) {

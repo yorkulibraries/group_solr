@@ -3,7 +3,7 @@
 namespace  Drupal\group_solr\Plugin\search_api\processor;
 
 use Drupal\islandora_group\Utilities;
-use Drupal\group\Entity\GroupContent;
+use Drupal\group\Entity\GroupRelationship;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
@@ -54,7 +54,7 @@ class AccessControl extends ProcessorPluginBase {
         $operation = "view";
 
         /** @var \Drupal\group\Plugin\GroupContentEnablerManagerInterface $plugin_manager */
-        $plugin_manager = \Drupal::service('plugin.manager.group_content_enabler');
+        $plugin_manager = \Drupal::service('group_relation_type.manager');
 
         $plugin_ids = $plugin_manager->getPluginIdsByEntityTypeAccess($entity->getEntityTypeId());
 

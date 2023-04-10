@@ -68,9 +68,10 @@ class AccessControl extends ProcessorPluginBase {
         if (!empty($group_contents) && count($group_contents) > 0) {
             $access = AccessResult::neutral();
             foreach ($plugin_ids as $plugin_id) {
-                if (!$plugin_manager->hasHandler($plugin_id, 'access')) {
+                //if (!$plugin_manager->hasHandler($plugin_id, 'access')) {
+                /*if (!$plugin_manager->getAccessControlHandler($this->pluginId)) {
                     continue;
-                }
+                }*/
 
                 $handler = $plugin_manager->getAccessControlHandler($plugin_id);
                 $access = $access->orIf($handler->entityAccess($entity, $operation, User::getAnonymousUser(), TRUE));

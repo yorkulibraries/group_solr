@@ -18,10 +18,11 @@
         }
     },
     "require": {
-        "drupal/group": "^1.4",
-        "drupal/groupmedia": "^2.0@alpha",
-        "drupal/group_permissions":"^1.0@alpha",
+         "drupal/group": "^3.0@RC",
+        "drupal/groupmedia": "^4.0@alpha",
+        "drupal/group_permissions":"^2.0@alpha",
         "drupal/search_api_solr": "^4.2"
+        
     },
     "authors": [
         {

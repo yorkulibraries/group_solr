@@ -56,6 +56,9 @@ class AccessControl extends ProcessorPluginBase {
         /** @var \Drupal\group\Plugin\GroupContentEnablerManagerInterface $plugin_manager */
         $plugin_manager = \Drupal::service('group_relation_type.manager');
 
+        if (!method_exists($entity, "getEntityTypeId"))
+           return;
+        
         $plugin_ids = $plugin_manager->getPluginIdsByEntityTypeAccess($entity->getEntityTypeId());
 
         $plugin_cache_tags = [];

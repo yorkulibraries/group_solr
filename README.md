@@ -1,6 +1,13 @@
 # Search API Solr Field for Access Control with Group
 This module add a field processed to determine access control based on Group
 
+# Installation
+By composer: 
+
+````
+composer require digitalutsc/group_solr
+````
+
 ## Work with Federated Search
 
 - Required modules: 

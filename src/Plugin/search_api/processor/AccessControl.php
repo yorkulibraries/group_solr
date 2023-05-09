@@ -87,7 +87,9 @@ class AccessControl extends ProcessorPluginBase {
                 $value = "200";
             }
             else {
-                $value = "403";
+                $groups = Utilities::getGroupsByNode($entity->id());
+                sort($groups);
+                $value = implode(",", $groups);
             }
 
 

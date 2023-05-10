@@ -7,6 +7,11 @@ By composer:
 ````
 composer require digitalutsc/group_solr
 ````
+## Work with views
+
+- Create a view as normal
+- Add a filter "Access control: Access Control Filter - Configurable with Group"
+- Save the view
 
 ## Work with Federated Search
 

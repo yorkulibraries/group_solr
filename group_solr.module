@@ -37,40 +37,18 @@ function group_solr_theme() {
 }
 
 /**
- * Implements hook_views_query_alter
- * @param $view
- * @param $query
- * @return void
+ * Implements hook_views_data().
  */
-function group_solr_views_query_alter($view, $query) {
-  if ($view->id() == 'solr_search_content') {
-    // Get current user
-    $uid = \Drupal::currentUser()->id();
-    $current_user = \Drupal\user\Entity\User::load($uid);
+function group_solr_views_data_alter(array &$data) {
 
-    // Get groups which this user is belonged to
-    $groups = array();
-    $grp_membership_service = \Drupal::service('group.membership_loader');
-    $grps = $grp_membership_service->loadByUser($current_user);
-    foreach ($grps as $grp) {
-      $groups[$grp->getGroup()->id()] = $grp->getGroup()->label();
-    }
+  $data['views']['access_control_with_group_filter'] = [
+    'title' => t('Access Control Filter - Configurable with Group'),
+    'group' => t('Access control'),
+    'filter' => [
+      'title' => t('Access Control Filter - Configurable with Group'),
+      'field' => 'group_access_control',
+      'id' => 'access_control_with_group_filter',
+    ],
+  ];
 
-    if (count($groups) > 0) {
-      // - from those group, get the taxonomy term in field_access_terms
-      // - from those terms, get term ids
-      $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree("islandora_access");
-      $conditions = $query->createConditionGroup('OR');
-      $conditions->addCondition("group_access_control", '200', "=");
-      foreach ($terms as $term) {
-        if (in_array($term->name, $groups)) {
-          $conditions->addCondition('group_access_control', $term->name, "IN");
-        }
-      }
-      $query->addConditionGroup($conditions);
-    }
-    else {
-      $query->addCondition('group_access_control', "200", '=');
-    }
-  }
 }

@@ -1,0 +1,10 @@
+views.filter.access_control_with_group_filter:
+  type: views.filter.in_operator
+  label: 'Select access control by Group'
+  mapping:
+    value:
+      type: sequence
+      label: 'Select access control by Group'
+      sequence:
+        type: string
+        label: 'Select access control by Group'

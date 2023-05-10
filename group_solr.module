@@ -35,3 +35,20 @@ function group_solr_theme() {
     ],
   ];
 }
+
+/**
+ * Implements hook_views_data().
+ */
+function group_solr_views_data_alter(array &$data) {
+
+  $data['views']['access_control_with_group_filter'] = [
+    'title' => t('Access Control Filter - Configurable with Group'),
+    'group' => t('Access control'),
+    'filter' => [
+      'title' => t('Access Control Filter - Configurable with Group'),
+      'field' => 'group_access_control',
+      'id' => 'access_control_with_group_filter',
+    ],
+  ];
+
+}

@@ -4,6 +4,7 @@ dependencies:
   config:
     - search_api.index.default_solr_index
   module:
+    - group_solr
     - search_api
 id: collection_search
 label: 'Collection Search'
@@ -76,11 +77,12 @@ display:
               extracted_text: default
             'entity:node':
               article: default
-              islandora_object: teaser
+              islandora_object: collection_search
               page: default
             'entity:taxonomy_term':
               city: default
               city_section: default
+              contact_categories: default
               continent: default
               corporate_body: default
               country: default
@@ -136,7 +138,14 @@ display:
         type: none
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        field_edtf_date_created:
+          id: field_edtf_date_created
+          table: search_api_index_default_solr_index
+          field: field_edtf_date_created
+          plugin_id: search_api
+          expose:
+            field_identifier: field_edtf_date_created
       arguments: {  }
       filters:
         status:
@@ -230,6 +239,44 @@ display:
               1: {  }
               2: {  }
               3: {  }
+        access_control_with_group_filter:
+          id: access_control_with_group_filter
+          table: views
+          field: access_control_with_group_filter
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: access_control_with_group_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: grid
         options:
@@ -272,6 +319,7 @@ display:
     position: 1
     display_options:
       title: 'Collection Search'
+      sorts: {  }
       arguments:
         field_member_of:
           id: field_member_of
@@ -305,6 +353,7 @@ display:
           not: false
       defaults:
         title: false
+        sorts: false
         arguments: false
       display_extenders:
         matomo:

@@ -72,22 +72,34 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_modes:
+            'entity:media':
+              document: default
+              extracted_text: default
             'entity:node':
               article: teaser
               islandora_object: teaser
               page: teaser
             'entity:taxonomy_term':
+              city: default
+              city_section: default
+              contact_categories: default
+              continent: default
               corporate_body: default
+              country: default
+              county: default
               family: default
               genre: default
               geo_location: default
               language: default
               person: default
               physical_form: default
+              province: default
+              region: default
               resource_types: default
+              rights: default
               subject: default
               tags: default
-              temporal: default
+              temporal_subjects: default
         search_api_excerpt:
           id: search_api_excerpt
           table: search_api_index_default_solr_index
@@ -369,37 +381,17 @@ display:
           1: AND
       style:
         type: default
-      row:
-        type: search_api
         options:
-          view_modes:
-            'entity:media':
-              document: default
-              extracted_text: default
-            'entity:node':
-              article: search_index
-              islandora_object: search_index
-              page: search_index
-            'entity:taxonomy_term':
-              city: default
-              city_section: default
-              continent: default
-              corporate_body: default
-              country: default
-              county: default
-              family: default
-              genre: default
-              geo_location: default
-              language: default
-              person: default
-              physical_form: default
-              province: default
-              region: default
-              resource_types: default
-              rights: default
-              subject: default
-              tags: default
-              temporal_subjects: default
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: search_api_query
         options:

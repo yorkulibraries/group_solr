@@ -81,10 +81,15 @@ third_party_settings:
     advanced:
       index_prefix: ''
       collection: ''
-      timezone: ''
+      timezone: America/Toronto
     multilingual:
       limit_to_content_language: false
       include_language_independent: true
+      use_language_undefined_as_fallback_language: false
+      specific_languages:
+        en: en
+        fr: fr
+      use_universal_collation: true
 id: default_solr_index
 name: 'Default Solr content index'
 description: 'Default content index created by the Solr Search Defaults module'
@@ -140,6 +145,7 @@ field_settings:
     configuration:
       type: concat
       fields:
+        - 'entity:node/field_access_terms'
         - 'entity:node/field_alternative_title'
         - 'entity:node/field_city'
         - 'entity:node/field_city_section'
@@ -479,10 +485,6 @@ field_settings:
       module:
         - taxonomy
   group_access_control:
-    label: 'Group: Access Control'
-    property_path: search_api_group_access_control
-    type: string
-  group_access_control_1:
     label: ' Group: Access Control'
     property_path: search_api_group_access_control
     type: string
@@ -622,6 +624,51 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
+  double_quote_workaround:
+    weights:
+      postprocess_query: 0
+      preprocess_index: -15
+      preprocess_query: -15
+    all_fields: false
+    fields:
+      - aggregated_geographic
+      - aggregated_subjects
+      - author
+      - collection_search
+      - description
+      - field_cat_date_begin
+      - field_cat_date_end
+      - field_city
+      - field_city_section
+      - field_continent
+      - field_corp_alt_name
+      - field_country
+      - field_county
+      - field_description
+      - field_edited_text
+      - field_edtf_date
+      - field_edtf_date_created
+      - field_edtf_date_issued
+      - field_genre
+      - field_geo_alt_name
+      - field_geographic_subject
+      - field_language
+      - field_linked_agent
+      - field_note
+      - field_physical_form
+      - field_province
+      - field_region
+      - field_resource_type
+      - field_subject
+      - field_subjects_name
+      - field_temporal_subject
+      - group_access_control
+      - group_access_control_1
+      - name
+      - rendered_item
+      - title
+      - type
+    replacement: '|9999999998|'
   edtf_year_only:
     fields:
       islandora_object|field_date_modified_: islandora_object|field_date_modified_
@@ -693,7 +740,6 @@ processor_settings:
       - field_subjects_name
       - field_temporal_subject
       - group_access_control
-      - group_access_control_1
       - name
       - rendered_item
       - title
@@ -757,7 +803,7 @@ tracker_settings:
   default:
     indexing_order: fifo
 options:
-  cron_limit: 50
+  cron_limit: 500
   index_directly: true
   track_changes_in_references: true
 server: default_solr_server

@@ -16,12 +16,16 @@ dependencies:
     - field.storage.node.field_description
     - field.storage.node.field_genre
     - field.storage.node.field_language
+    - field.storage.node.field_local_identifier
     - field.storage.node.field_model
     - field.storage.node.field_note
     - field.storage.node.field_physical_form
+    - field.storage.node.field_pid
     - field.storage.node.field_province
     - field.storage.node.field_region
     - field.storage.node.field_resource_type
+    - field.storage.node.field_rights_holder
+    - field.storage.node.field_rights
     - field.storage.node.field_subject
     - field.storage.node.field_geographic_subject
     - field.storage.node.field_subjects_name
@@ -382,6 +386,14 @@ field_settings:
         - field.storage.node.field_linked_agent
       module:
         - taxonomy
+  field_local_identifier:
+    label: 'Local Identifier'
+    datasource_id: 'entity:node'
+    property_path: field_local_identifier
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_local_identifier
   field_member_of:
     label: 'Member of'
     datasource_id: 'entity:node'
@@ -416,6 +428,14 @@ field_settings:
         - field.storage.node.field_physical_form
       module:
         - taxonomy
+  field_pid:
+    label: PID
+    datasource_id: 'entity:node'
+    property_path: field_pid
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_pid
   field_province:
     label: Province
     datasource_id: 'entity:node'
@@ -446,6 +466,22 @@ field_settings:
         - field.storage.node.field_resource_type
       module:
         - taxonomy
+  field_rights:
+    label: 'Rights Statement'
+    datasource_id: 'entity:node'
+    property_path: field_rights
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_rights
+  field_rights_holder:
+    label: 'Rights Holder'
+    datasource_id: 'entity:node'
+    property_path: field_rights_holder
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_rights_holder
   field_subject:
     label: Subject
     datasource_id: 'entity:node'
@@ -624,6 +660,7 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
+  custom_value: {  }
   double_quote_workaround:
     weights:
       postprocess_query: 0
@@ -731,8 +768,10 @@ processor_settings:
       - field_geographic_subject
       - field_language
       - field_linked_agent
+      - field_local_identifier
       - field_note
       - field_physical_form
+      - field_pid
       - field_province
       - field_region
       - field_resource_type

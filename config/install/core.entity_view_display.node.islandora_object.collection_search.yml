@@ -64,7 +64,7 @@ third_party_settings:
       label: 'Download Options'
       parent_name: ''
       region: hidden
-      weight: 3
+      weight: 24
       format_type: html_element
       format_settings:
         classes: media-download
@@ -86,7 +86,7 @@ third_party_settings:
       label: 'Default object detail'
       parent_name: ''
       region: hidden
-      weight: 4
+      weight: 25
       format_type: tabs
       format_settings:
         classes: ''
@@ -97,31 +97,31 @@ third_party_settings:
     group_item_:
       children:
         - field_alternative_title
-        - field_linked_agent
-        - field_place_published
+        - field_call_number
+        - field_doi
         - field_edtf_date
-        - field_edtf_date_issued
         - field_edtf_date_created
-        - field_genre
-        - field_resource_type
+        - field_edtf_date_issued
         - field_extent
-        - field_physical_form
-        - field_physical_location
-        - field_relation
+        - field_genre
+        - field_geographic_subject
+        - field_hdl
+        - field_isbn
+        - field_issn
+        - field_keyword
         - field_language
-        - field_pid
+        - field_lccn
+        - field_linked_agent
         - field_local_identifier
         - field_oclc
-        - field_lccn
-        - field_call_number
-        - field_issn
-        - field_doi
-        - field_isbn
-        - field_hdl
-        - field_keyword
+        - field_physical_form
+        - field_physical_location
+        - field_pid
+        - field_place_published
+        - field_relation
+        - field_resource_type
         - field_subject
         - field_subjects_name
-        - field_geographic_subject
         - field_temporal_subject
       label: 'Item Description'
       parent_name: group_default_o
@@ -136,8 +136,8 @@ third_party_settings:
         description: ''
     group_rights:
       children:
-        - field_rights_holder
         - field_rights
+        - field_rights_holder
       label: Rights
       parent_name: group_default_o
       region: hidden
@@ -165,14 +165,14 @@ third_party_settings:
         description: ''
     group_geographic:
       children:
-        - field_continent
-        - field_country
-        - field_province
-        - field_region
-        - field_county
         - field_city
         - field_city_section
+        - field_continent
         - field_coordinates
+        - field_country
+        - field_county
+        - field_province
+        - field_region
       label: Geographic
       parent_name: group_default_o
       region: hidden
@@ -201,6 +201,7 @@ hidden:
   addtoany: true
   display_media_entity_view_1: true
   display_media_entity_view_2: true
+  display_media_entity_view_3: true
   display_media_service_file: true
   field_access_terms: true
   field_alternative_title: true

@@ -4,6 +4,4 @@ description: 'This module add Solr indexed field(s) which is determined access c
 core_version_requirement: ^10.3 || ^11
 package: 'Custom'
 dependencies:
-  - group
-  - groupmedia
   - search_api_solr

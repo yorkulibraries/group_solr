@@ -104,6 +104,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 48
           total_pages: null
           id: 0
@@ -135,7 +136,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: none
+        type: search_api_none
         options: {  }
       empty: {  }
       sorts:
@@ -369,7 +370,46 @@ display:
           expose:
             label: Title
             field_identifier: title
-          exposed: false
+          exposed: true
+        field_edtf_date:
+          id: field_edtf_date
+          table: search_api_index_default_solr_index
+          field: field_edtf_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Date
+            field_identifier: field_edtf_date
+          exposed: true
+        field_edtf_date_created:
+          id: field_edtf_date_created
+          table: search_api_index_default_solr_index
+          field: field_edtf_date_created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: 'Date added'
+            field_identifier: field_edtf_date_created
+          exposed: true
+        field_model:
+          id: field_model
+          table: search_api_index_default_solr_index
+          field: field_model
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Type
+            field_identifier: field_model
+          exposed: true
       arguments:
         field_member_of:
           id: field_member_of
@@ -425,6 +465,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.default_solr_index'

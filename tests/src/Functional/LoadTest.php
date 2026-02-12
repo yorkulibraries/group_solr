@@ -13,11 +13,16 @@ use Drupal\Tests\BrowserTestBase;
 class LoadTest extends BrowserTestBase {
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
    * Modules to enable.
    *
    * @var array
    */
-  public static $modules = ['group_solr'];
+  protected static $modules = ['group_solr'];
 
   /**
    * A user with permission to administer site configuration.

@@ -157,6 +157,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -188,7 +189,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: none
+        type: search_api_none
         options: {  }
       empty: {  }
       sorts:
@@ -272,12 +273,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              content_editor: '0'
-              fedoraadmin: '0'
-              restricted: '0'
-              york_university: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -431,7 +426,7 @@ display:
     position: 1
     display_options:
       cache:
-        type: none
+        type: search_api_none
       defaults:
         cache: false
       exposed_block: true
